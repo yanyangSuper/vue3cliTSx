@@ -1,0 +1,11 @@
+// div {
+//     background-color: deeppink;
+//   cssMoudle 引入样式 会在全局header中引入，
+// }
+.spel {
+    background-color: #FFFF;
+    color: red;
+    .formBox {
+        background-color: aqua;
+    }
+}

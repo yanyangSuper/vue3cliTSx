@@ -32,7 +32,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "typed-css.d.ts"//配置的.d.ts文件
   ],
   "exclude": [
     "node_modules"
