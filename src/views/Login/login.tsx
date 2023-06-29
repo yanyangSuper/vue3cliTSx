@@ -2,7 +2,7 @@
  * @Author: yangyang 1710001012@qq.com
  * @Date: 2023-06-06 17:53:08
  * @LastEditors: yangyang 1710001012@qq.com
- * @LastEditTime: 2023-06-14 15:52:41
+ * @LastEditTime: 2023-06-26 11:26:52
  * @FilePath: /vueclits/src/views/Login/login.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -24,11 +24,11 @@ export default defineComponent({
           <h2>Login</h2>
           <form>
             <div class={sty.userbox}>
-              <input v-model={loginForm.userName} type="text" name="" />
+              <input v-model={loginForm.userName} type="text" name="" required/>
               <label>Username</label>
             </div>
             <div class={sty.userbox}>
-              <input v-model={loginForm.password} type="password" name="" />
+              <input v-model={loginForm.password} type="password" name="" required/>
               <label>Password</label>
             </div>
             <a href="javascript:void(0);" onClick={submit}>
