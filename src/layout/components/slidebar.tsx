@@ -2,20 +2,36 @@
  * @Author: yangyang 1710001012@qq.com
  * @Date: 2023-06-13 14:46:58
  * @LastEditors: yangyang 1710001012@qq.com
- * @LastEditTime: 2023-06-29 14:59:12
+ * @LastEditTime: 2023-06-30 14:51:53
  * @FilePath: /vueclits/src/layout/components/slidebar.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
 
 /**
  * 侧边栏
  */
 export default defineComponent({
     setup() {
-        const selectedKeys2 = ref<string[]>(['1']);
+        const selectedKeys2 = ref<string[]>(['00']);
+        const meuns = ref([
+            {
+                title: '系统设置',
+                children: [
+                    {
+                        title: '文件管理',
+                        children: []
+                    }
+                ]
+            },
+            {
+                title: '权限管理',
+                children: []
+            }
+        ])
         return {
-            selectedKeys2
+            selectedKeys2,
+            meuns
         }
     },
     render(ctx: any) {
@@ -36,25 +52,22 @@ export default defineComponent({
                 style={{height: '100%', borderRight: 0}}
               >
                 {/* 判断有无二级 */}
-                <a-menu-item key="1">nav 1</a-menu-item>
-                <a-sub-menu key="sub1" v-slots={mslot}>
-                  <a-menu-item key="1">option1</a-menu-item>
-                  <a-menu-item key="2">option2</a-menu-item>
-                  <a-menu-item key="3">option3</a-menu-item>
-                  <a-menu-item key="4">option4</a-menu-item>
-                </a-sub-menu>
-                <a-sub-menu key="sub2" v-slots={mslot}>
-                  <a-menu-item key="5">option5</a-menu-item>
-                  <a-menu-item key="6">option6</a-menu-item>
-                  <a-menu-item key="7">option7</a-menu-item>
-                  <a-menu-item key="8">option8</a-menu-item>
-                </a-sub-menu>
-                <a-sub-menu key="sub3" v-slots={mslot}>
-                  <a-menu-item key="9">option9</a-menu-item>
-                  <a-menu-item key="10">option10</a-menu-item>
-                  <a-menu-item key="11">option11</a-menu-item>
-                  <a-menu-item key="12">option12</a-menu-item>
-                </a-sub-menu>
+                {ctx.meuns.map((item: any,index: number) => {
+                    return (
+                        item.children?.length ? (
+                        <a-sub-menu key={index} title={item.title}>
+                            {item.children.map((nape: any, Tindex: number)=> {
+                                return (
+                                    <a-menu-item key={`${index}${Tindex}`}>{nape.title}</a-menu-item>
+                                )
+                            })}
+                        </a-sub-menu> 
+                        )
+                        : (
+                        <a-menu-item key={index}>{item.title}</a-menu-item>
+                        )
+                    )
+                })}
               </a-menu>
         )
     }
