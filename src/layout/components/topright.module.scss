@@ -1,0 +1,11 @@
+.container {
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    .avatar {
+        background-color: #FFF;
+    }
+}

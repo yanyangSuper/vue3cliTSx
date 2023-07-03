@@ -3,12 +3,13 @@ import AppMain from './components/appmain'
 import SlideBar from "./components/slidebar";
 import NavBar from './components/navbar'
 import { useStore } from 'vuex'
+import { useRouter } from "vue-router";
 
 /*
  * @Author: yangyang 1710001012@qq.com
  * @Date: 2023-06-13 14:37:52
  * @LastEditors: yangyang 1710001012@qq.com
- * @LastEditTime: 2023-06-30 17:26:27
+ * @LastEditTime: 2023-06-30 18:09:10
  * @FilePath: /vueclits/src/layout/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -22,6 +23,9 @@ export default defineComponent({
     // vuex
     const store = useStore()
     console.log(store, 11, store.state.permission.msg)
+    // 路由
+    const router = useRouter()
+    console.log(router, '---router--')
     // jsx 计算属性
 
     return {
