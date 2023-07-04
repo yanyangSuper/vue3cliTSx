@@ -2,7 +2,7 @@
  * @Author: yangyang 1710001012@qq.com
  * @Date: 2023-07-03 17:44:52
  * @LastEditors: yangyang 1710001012@qq.com
- * @LastEditTime: 2023-07-03 17:59:29
+ * @LastEditTime: 2023-07-04 16:31:36
  * @FilePath: /vueclits/src/utils/require.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -57,7 +57,7 @@ service.interceptors.response.use(
     const res = response.data
 
     // if the custom code is not 20000, it is judged as an error.
-    if (res.code !== 20000) {
+    if (res.code !== 200) {
       message.error({
         content: res.message || 'Error',
         duration: 5 * 1000
