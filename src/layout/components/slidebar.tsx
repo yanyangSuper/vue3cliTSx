@@ -2,7 +2,7 @@
  * @Author: yangyang 1710001012@qq.com
  * @Date: 2023-06-13 14:46:58
  * @LastEditors: yangyang 1710001012@qq.com
- * @LastEditTime: 2023-06-30 14:51:53
+ * @LastEditTime: 2023-07-05 10:10:30
  * @FilePath: /vueclits/src/layout/components/slidebar.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -35,15 +35,6 @@ export default defineComponent({
         }
     },
     render(ctx: any) {
-        const mslot = {
-            title: () => {
-                return (
-                    <>
-                        <span>用户管理</span>
-                    </>
-                )
-            }
-        }
         return (
             <a-menu
                 v-model:selectedKeys={ctx.selectedKeys2}

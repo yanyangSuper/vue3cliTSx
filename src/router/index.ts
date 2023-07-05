@@ -2,7 +2,7 @@
  * @Author: yangyang 1710001012@qq.com
  * @Date: 2023-06-06 13:25:09
  * @LastEditors: yangyang 1710001012@qq.com
- * @LastEditTime: 2023-07-03 17:43:15
+ * @LastEditTime: 2023-07-05 17:31:49
  * @FilePath: /vueclits/src/router/index.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,7 +12,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
+    name: 'index',
     redirect: '/login'
     // component: HomeView,
   },
@@ -26,7 +26,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
     meta: {
       title: '关于',
       icon: 'table',
-      role: 'admin'
+      roles: 'admin'
     },
   },
   {
@@ -41,6 +41,26 @@ const constantRoutes: Array<RouteRecordRaw> = [
       icon: 'table'
     },
   },
+  {
+    path: '/home',
+    name: 'home',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../layout/index'),
+    meta: {
+      title: '首页',
+      icon: 'table'
+    },
+    redirect: '/general',
+    children: [
+      {
+        path: '/general',
+        name: '首页',
+        component: () => import('../views/Login/register/index')
+      }
+    ]
+  }
 ]
 
 const asyncRoutes: Array<RouteRecordRaw> = [
