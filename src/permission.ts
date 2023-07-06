@@ -2,7 +2,7 @@
  * @Author: yangyang 1710001012@qq.com
  * @Date: 2023-06-30 15:32:29
  * @LastEditors: yangyang 1710001012@qq.com
- * @LastEditTime: 2023-07-05 18:20:06
+ * @LastEditTime: 2023-07-06 15:21:01
  * @FilePath: /vueclits/src/permission.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -50,14 +50,16 @@ router.beforeEach(async(to, from, next) => {
 
           // generate accessible routes map based on roles
           const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
+          console.log(accessRoutes, 'main')
 
           // dynamically add accessible routes
           router.addRoute(accessRoutes)
-
+          // @ts-ignore
+          // router.options.routes.push(accessRoutes) //push到options中，可随时拿到路由结构数据，本系统直接将动态路由存到vuex可避免拿不到路由
           // hack method to ensure that addRoutes is complete
           // set the replace: true, so the navigation will not leave a history record
-          // next({ ...to, replace: true })
-          next()
+          next({ ...to, replace: true })
+          // next()
         } catch (error) {
           // remove token and go to login page to re-login
           await store.dispatch('user/resetToken')

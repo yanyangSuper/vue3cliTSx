@@ -2,7 +2,7 @@
  * @Author: yangyang 1710001012@qq.com
  * @Date: 2023-06-06 17:53:08
  * @LastEditors: yangyang 1710001012@qq.com
- * @LastEditTime: 2023-07-05 18:18:35
+ * @LastEditTime: 2023-07-06 15:23:51
  * @FilePath: /vueclits/src/views/Login/login.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -17,7 +17,6 @@ import { useStore } from "vuex";
 export default defineComponent({
   setup() {
     const router = useRouter()
-    const store = useStore()
     console.log(router)
     const loginForm = reactive({
       userName: '',
